@@ -6,5 +6,8 @@
 <app-car></app-car>
 
 <hr>
-<input type="text" class="form-control" #myInput (input)="inputChange(myInput.value)">
+<input type="text" class="form-control" (keyup.enter)="inputChange($event)">
+<input type="text" class="form-control" [(ngModel)]="inputText">
+
+
 <p>{{ inputText }}</p>

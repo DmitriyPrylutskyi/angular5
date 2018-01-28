@@ -20,8 +20,8 @@ export class CarsComponent implements OnInit {
   	this.addCarStatus = 'Car added';
   }
 
-  inputChange(value) {
-  	this.inputText = value;
+  inputChange(event) {
+  	this.inputText = event.target.value;
   }
 
 }
