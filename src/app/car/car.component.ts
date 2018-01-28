@@ -2,19 +2,15 @@
 
 @Component({
   selector: 'app-car',
-  template: `
-  	<h4>I am car</h4>
-  `,
-  styles: [`
-  	h4 {
-		color: blue;
-	}
-  `]
+  templateUrl: './car.component.html',
+  styleUrls: ['./car.component.scss']
 })
 export class CarComponent implements OnInit {
+  carName = 'Ford';
+  carYear = 2015;
 
   constructor() { }
-
+ 
   ngOnInit() {
   }
 

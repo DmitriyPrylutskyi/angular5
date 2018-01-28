@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
+  canAddCar = false;
 
-  constructor() { }
+  constructor() {
+  	setTimeout(() => {
+  		this.canAddCar = true;
+  	}, 2000)
+  }
 
   ngOnInit() {
   }
