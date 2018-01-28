@@ -2,19 +2,26 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: '.app-cars',
-  templateUrl: './cars.component.html',
+  templateUrl: './cars.component.html', 
   styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
-  canAddCar = false;
+  addCarStatus = '';
+  inputText = '';
 
   constructor() {
-  	setTimeout(() => {
-  		this.canAddCar = true;
-  	}, 2000)
+  	
   }
 
   ngOnInit() {
+  }
+
+  addCar() {
+  	this.addCarStatus = 'Car added';
+  }
+
+  inputChange(value) {
+  	this.inputText = value;
   }
 
 }
