@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarsComponent implements OnInit {
   carName = '';
   isAddCar = false;
+  cars = ['Mersedes', 'BMW', 'Audi'];
 
   constructor() {
 
@@ -16,7 +17,9 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCar() {
-    this.isAddCar = true; 
+   addCar() {
+    this.isAddCar = true;
+    this.cars.push(this.carName);
+    this.carName = '';
   }
 }
