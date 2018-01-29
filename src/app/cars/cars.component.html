@@ -1,11 +1,12 @@
-<input type="text" class="form-control" [(ngModel)]="carName" >
+<div class="form-group">
+  <label for="name">Name</label>
+  <input type="text" id="name" class="form-control" [(ngModel)]="carName" >
+</div>
+<div class="form-group">
+  <label for="year">Year</label>
+  <input type="text" id="year" class="form-control" [(ngModel)]="carYear" >
+</div>
 <button class="btn btn-primary" (click)="addCar()" >Add car</button>
-<p *ngIf="!isAddCar; else addcar">Car not added</p>
-<ng-template #addcar>
-  <p>Car added</p>
-</ng-template>
 <hr>
 
-<div *ngFor ="let car of cars; let i = index" [ngStyle]="{'backgroundColor': (i + 1) % 2 == 0 ? 'gray' : 'none'}">
-  <app-car [ngStyle]="{'backgroundColor': (i + 1) % 2 == 0 ? 'gray' : 'none'}" [ngClass]="{'item': setStyleItemCar(car)}"></app-car>
-</div>
+<app-car *ngFor ="let car of cars" [carItem] = car></app-car>

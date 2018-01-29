@@ -7,8 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsComponent implements OnInit {
   carName = '';
-  isAddCar = false;
-  cars = ['Mersedes', 'BMW', 'Audi'];
+  carYear = 2018;
+  cars: [{name: string, year: number}] =
+  [
+    {
+      name: 'Mersedes',
+      year: 2015
+    },
+    {
+    name: 'BMW',
+    year: 2016
+    },
+    {
+      name: 'Audi',
+      year: 2017
+    }
+  ];
 
   constructor() {
 
@@ -18,12 +32,11 @@ export class CarsComponent implements OnInit {
   }
 
   addCar() {
-    this.isAddCar = true;
-    this.cars.push(this.carName);
+    this.cars.push({
+      name: this.carName,
+      year: this.carYear
+    });
     this.carName = '';
-  }
-
-  setStyleItemCar(car: string) {
-    return car === 'BMW' ? true : false;
+    this.carYear = 2018;
   }
 }
