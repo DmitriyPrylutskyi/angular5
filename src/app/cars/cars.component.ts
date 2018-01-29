@@ -17,9 +17,13 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   }
 
-   addCar() {
+  addCar() {
     this.isAddCar = true;
     this.cars.push(this.carName);
     this.carName = '';
+  }
+
+  setStyleItemCar(car: string) {
+    return car === 'BMW' ? true : false;
   }
 }

@@ -6,4 +6,6 @@
 </ng-template>
 <hr>
 
-<app-car *ngFor ="let car of cars"></app-car>
+<div *ngFor ="let car of cars; let i = index" [ngStyle]="{'backgroundColor': (i + 1) % 2 == 0 ? 'gray' : 'none'}">
+  <app-car [ngStyle]="{'backgroundColor': (i + 1) % 2 == 0 ? 'gray' : 'none'}" [ngClass]="{'item': setStyleItemCar(car)}"></app-car>
+</div>
