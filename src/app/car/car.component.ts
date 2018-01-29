@@ -10,7 +10,7 @@ export class CarComponent implements OnInit {
   carYear = 2015;
 
   constructor() { }
- 
+
   ngOnInit() {
   }
 
