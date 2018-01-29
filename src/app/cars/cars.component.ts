@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
-  carName = '';
-  carYear = 2018;
   cars: [{name: string, year: number}] =
   [
     {
@@ -31,12 +29,7 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCar() {
-    this.cars.push({
-      name: this.carName,
-      year: this.carYear
-    });
-    this.carName = '';
-    this.carYear = 2018;
+  updateCarList(car: {name: string, year: number}) {
+    this.cars.push(car);
   }
 }
