@@ -7,7 +7,7 @@
 })
 export class AddCarComponent implements OnInit {
   @Output('onAddCar') carEmitter = new EventEmitter<{name: string, year: number}>();
-  @ViewChild('carYearInput') carYear:ElementRef;
+  @ViewChild('carYearInput') carYear: ElementRef;
 
   constructor() { }
 
@@ -16,10 +16,10 @@ export class AddCarComponent implements OnInit {
 
 
   addCar(carNameEl: HTMLInputElement) {
-  	this.carEmitter.emit({
-  		name: carNameEl.value,
-  		year: this.carYear.nativeElement.value
-  	})
+    this.carEmitter.emit({
+      name: carNameEl.value,
+      year: this.carYear.nativeElement.value
+    })
 
     carNameEl.value = '';
     this.carYear.nativeElement.value = '';
