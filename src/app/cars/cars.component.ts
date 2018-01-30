@@ -11,7 +11,7 @@ export class CarsComponent implements OnInit {
     {
       name: 'Mersedes',
       year: 2015
-    },
+    }/*,
     {
     name: 'BMW',
     year: 2016
@@ -19,7 +19,7 @@ export class CarsComponent implements OnInit {
     {
       name: 'Audi',
       year: 2017
-    }
+    }*/
   ];
 
   constructor() {
@@ -31,5 +31,14 @@ export class CarsComponent implements OnInit {
 
   updateCarList(car: {name: string, year: number}) {
     this.cars.push(car);
+  }
+
+
+  changeCarName() {
+   this.cars[0].name = 'Test';
+  }
+
+  deleteCar() {
+    this.cars.splice(0, 1);
   }
 }
