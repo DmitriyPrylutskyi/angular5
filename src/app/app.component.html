@@ -9,8 +9,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
-      <h2> {{ num }}</h2>
-      <h2> {{ num | appPow:3:'=' }}</h2>
+      <input type="text" class="form-control" [(ngModel)] = "searchCar">
+      <hr>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index">
+          <b>{{ i+1 }}</b> {{ car.name }} <span> {{ car.year }} </span>
+        </li>
+      </ul>
 		</div>
 	</div>
 </div>
