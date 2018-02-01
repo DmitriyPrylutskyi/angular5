@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular';
-  num = 2;
+  cars = [
+    { name: 'Mersedes', year: 2001},
+    { name: 'BMW', year: 2002},
+    { name: 'Audi', year: 2003},
+    { name: 'FW', year: 2004},
+    { name: 'Ford', year: 2005},
+    { name: 'Toyota', year: 2006}
+  ];
+  searchCar = '';
 }
