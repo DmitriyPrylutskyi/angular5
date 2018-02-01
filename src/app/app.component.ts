@@ -7,18 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular';
-  name = 'My App';
-  pi = Math.PI;
-  money = 350;
-  date = new Date();
-  amount = 0.45;
-  object = {
-    foo: 'bar',
-    baz: 'qux',
-    nested:
-      {
-        xyz: 3,
-        numbers: [1, 2, 3]
-      }
-  };
+  num = 2;
 }
