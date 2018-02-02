@@ -9,7 +9,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
-      <input type="text" class="form-control" [(ngModel)] = "searchCar">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)] = "searchCar">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="addCar()">Add</button>
+        </div>
+      </div>
       <hr>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let car of cars | carFilter:searchCar:'name'; let i = index">
