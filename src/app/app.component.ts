@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,8 @@ export class AppComponent {
     { name: 'Toyota', year: 2006}
   ];
   searchCar = '';
+
+  asyncTitle = Observable.of('Async Title').delay(3000);
 
   addCar() {
     this.cars.push({

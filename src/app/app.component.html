@@ -9,6 +9,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
+      <h1>{{ asyncTitle | async }}</h1>
       <div class="input-group mb-3">
         <input type="text" class="form-control" [(ngModel)] = "searchCar">
         <div class="input-group-append">
