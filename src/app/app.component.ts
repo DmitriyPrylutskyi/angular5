@@ -16,4 +16,11 @@ export class AppComponent {
     { name: 'Toyota', year: 2006}
   ];
   searchCar = '';
+
+  addCar() {
+    this.cars.push({
+      name: 'New Car',
+      year: 2000
+    });
+  }
 }
