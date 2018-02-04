@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { CarsService } from './cars.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +7,18 @@ import { CarsService } from './cars.service';
 })
 export class AppComponent implements OnInit {
   title = 'Angular';
-  cars = [];
-
-  constructor (private carsService: CarsService) {};
+  answers = [
+    {
+      type: 'yes',
+      text: 'yes'
+    },
+    {
+      type: 'no',
+      text: 'no '
+    },
+  ];
 
   ngOnInit() {
-    this.cars = this.carsService.cars;
+
   }
 }
