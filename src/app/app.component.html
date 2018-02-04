@@ -9,10 +9,30 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
-      <app-car-add></app-car-add>
-      <div class="list-group">
-        <app-car *ngFor="let car of cars" [car]="car"></app-car>
-      </div>
+      <form>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Choose country</label>
+          <select class="form-control">
+            <option value="ru">Russian</option>
+            <option value="by">Belorussian</option>
+            <option value="ua">Ukraine</option>
+          </select>
+        </div>
+        <div class="radio" *ngFor="let answer of answers">
+          <label>
+            <input type="radio" [value]="answer.type"> {{answer.text}}
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success">Send</button>
+      </form>
 		</div>
 	</div>
 </div>
