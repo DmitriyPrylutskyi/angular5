@@ -9,7 +9,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-8 offset-2">
-      <app-car-add (CarAdd)="addCar($event)"></app-car-add>
+      <app-car-add></app-car-add>
       <div class="list-group">
         <app-car *ngFor="let car of cars" [car]="car"></app-car>
       </div>
