@@ -59,9 +59,9 @@
               type="radio"
               name="answer"
               [value]="answer.type"
-              ngModel
+              [ngModel]="defaultAnswer"
               required
-            > {{answer.text}}
+             > {{answer.text}}
           </label>
         </div>
         <button
