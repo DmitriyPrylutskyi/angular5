@@ -17,6 +17,8 @@
             class="form-control"
             name="email"
             ngModel
+            required
+            email
           >
         </div>
         <div class="form-group">
@@ -26,6 +28,7 @@
             class="form-control"
             name="passsword"
             ngModel
+            required
           >
         </div>
         <div class="form-group">
@@ -33,7 +36,8 @@
           <select
             class="form-control"
             name="country"
-            ngModelGroup
+            ngModel
+            required
           >
             <option value="ru">Russian</option>
             <option value="by">Belorussian</option>
@@ -47,10 +51,15 @@
               name="answer"
               [value]="answer.type"
               ngModel
+              required
             > {{answer.text}}
           </label>
         </div>
-        <button type="submit" class="btn btn-success">Send </button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="form.invalid"
+        >Send </button>
       </form>
 		</div>
 	</div>
