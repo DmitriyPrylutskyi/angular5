@@ -1,5 +1,5 @@
-input, select {
-  &.ng-touched.ng-invalid {
-    border: 1px solid red;
+.form-group {
+  p {
+    color: #dc3545;
   }
 }

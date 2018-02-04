@@ -19,7 +19,10 @@
             ngModel
             required
             email
+            #email="ngModel"
+            [ngClass]="{'is-invalid': email.invalid && email.touched}"
           >
+          <p *ngIf="email.invalid && email.touched">Enter correct email</p>
         </div>
         <div class="form-group">
           <label>Password</label>
@@ -29,7 +32,10 @@
             name="passsword"
             ngModel
             required
+            #password="ngModel"
+            [ngClass]="{'is-invalid': password.invalid && password.touched}"
           >
+          <p *ngIf="password.invalid && password.touched">Enter password</p>
         </div>
         <div class="form-group">
           <label>Choose country</label>
@@ -38,11 +44,14 @@
             name="country"
             ngModel
             required
+            #country="ngModel"
+            [ngClass]="{'is-invalid': country.invalid && country.touched}"
           >
             <option value="ru">Russian</option>
             <option value="by">Belorussian</option>
             <option value="ua">Ukraine</option>
           </select>
+          <p *ngIf="country.invalid && country.touched">Choose country</p>
         </div>
         <div class="radio" *ngFor="let answer of answers">
           <label>
