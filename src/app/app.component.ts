@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CarsService} from './cars.service';
 
-interface Car {
+export interface Car {
   name: string;
   color: string;
   id: number;
@@ -16,7 +16,13 @@ export class AppComponent implements OnInit {
   title = 'Angular';
   cars: Car[] = [];
   carName = '';
-  carColor = '';
+  colors = [
+    'red',
+    'blue',
+    'black',
+    'yellow',
+    'grey'
+  ];
 
   constructor(private carsService: CarsService) {}
 
@@ -34,11 +40,22 @@ export class AppComponent implements OnInit {
 
   addCar() {
     this.carsService
-      .addCar(this.carName, this.carColor)
+      .addCar(this.carName, this.getRandColor())
       .subscribe((car: Car) => {
         this.cars.push(car);
       });
     this.carName = '';
-    this.carColor = '';
+  }
+
+  getRandColor() {
+    const posColor = Math.round(Math.random() * (this.colors.length - 1));
+    return this.colors[posColor];
+  }
+
+  changeColor(car: Car) {
+    this.carsService.changeColor(car, this.getRandColor())
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

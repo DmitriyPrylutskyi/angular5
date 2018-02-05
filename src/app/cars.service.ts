@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Car } from './app.component';
+
 @Injectable()
 export class CarsService {
   url = 'http://localhost:3000/cars';
@@ -18,5 +20,10 @@ export class CarsService {
     };
 
     return this.httpClient.post(this.url, data);
+  }
+
+  changeColor(car: Car, color: string) {
+    car.color = color;
+    return this.httpClient.put(this.url + '/' + car.id, {car});
   }
 }

@@ -11,7 +11,6 @@
 		<div class="col-8 offset-2">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Model" [(ngModel)]="carName">
-        <input type="text" class="form-control" placeholder="Color" [(ngModel)]="carColor">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" (click)="addCar()">Add car</button>
         </div>
@@ -21,7 +20,14 @@
       <hr>
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let car of cars">
-          Model:  {{car.name}}, color: {{car.color}} <span class="badge badge-info badge-pill">{{car.id}}</span>
+          {{car.name}}
+          <span
+            class="badge badge-info badge-pill"
+            [ngStyle]="{background: car.color}"
+          >{{car.id}}</span>
+          <div class="list-inline-item">
+            <button class="btn btn-xs btn-info" type="button" (click)="changeColor(car)">Change color</button>
+          </div>
         </li>
       </ul>
  		</div>
