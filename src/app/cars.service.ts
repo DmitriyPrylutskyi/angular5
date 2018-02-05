@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { catchError } from 'rxjs/operators';
 
 import { Car } from './app.component';
 
+
 @Injectable()
 export class CarsService {
-  url = 'http://localhost:3000/cars/';
+  url = 'http://localhost:3100/cars/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -13,7 +16,12 @@ export class CarsService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf8'
     });
-    return this.httpClient.get(this.url, {headers: headers});
+    return this.httpClient
+      .get(this.url, {headers: headers})
+      .pipe(
+        catchError(() => new ErrorObservable('Something bad happened. Please try again later.')
+        )
+      );
   }
 
   addCar(carName: string, carColor: string) {
