@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CarsService} from './cars.service';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,19 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Angular';
-  cars = [
-    {
-      name: 'Ford',
-      color: 'white',
-      id: 1
-    }
-  ];
+  cars = [];
+
+  constructor(private carsService: CarsService) {}
 
   ngOnInit() {
 
+  }
+
+  loadCars() {
+    this.carsService
+      .getCars()
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }
