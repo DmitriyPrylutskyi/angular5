@@ -10,25 +10,28 @@
 	<div class="row">
 		<div class="col-8 offset-2">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label>Email</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="email"
-            [ngClass]="{'is-invalid': form.get('email').invalid && form.get('email').touched}"
-          >
-          <p *ngIf="form.get('email').invalid && form.get('email').touched">Email is not correct</p>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            class="form-control"
-            formControlName="password"
-            [ngClass]="{'is-invalid': form.get('password').invalid && form.get('password').touched}"
-          >
-          <p *ngIf="form.get('password').invalid && form.get('password').touched">Password is required</p>
+        <div formGroupName="userdata">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              [ngClass]="{'is-invalid': form.get('userdata.email').invalid && form.get('userdata.email').touched}"
+            >
+            <p *ngIf="form.get('userdata.email').invalid && form.get('userdata.email').touched">Email is not correct</p>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              [ngClass]="{'is-invalid': form.get('userdata.password').invalid && form.get('userdata.password').touched}"
+            >
+            <p *ngIf="form.get('userdata.password').invalid && form.get('userdata.password').touched">Password is required</p>
+          </div>
+          <p *ngIf="form.get('userdata').invalid && form.get('userdata').touched">User data is invalid</p>
         </div>
         <div class="form-group">
           <label>Choose country</label>
