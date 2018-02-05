@@ -5,10 +5,9 @@ import { catchError } from 'rxjs/operators';
 
 import { Car } from './app.component';
 
-
 @Injectable()
 export class CarsService {
-  url = 'http://localhost:3100/cars/';
+  url = 'http://localhost:3000/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +16,7 @@ export class CarsService {
       'Content-Type': 'application/json; charset=utf8'
     });
     return this.httpClient
-      .get(this.url, {headers: headers})
+      .get(this.url + 'cars/', {headers: headers})
       .pipe(
         catchError(this.handleError)
       );
@@ -30,7 +29,7 @@ export class CarsService {
     };
 
     return this.httpClient
-      .post(this.url, data)
+      .post(this.url + 'cars/', data)
       .pipe(
         catchError(this.handleError)
       );
@@ -39,7 +38,7 @@ export class CarsService {
   setColorCar(car: Car, color: string) {
     car.color = color;
     return this.httpClient
-      .put(this.url + car.id, car)
+      .put(this.url + 'cars/' + car.id, car)
       .pipe(
         catchError(this.handleError)
       );
@@ -47,7 +46,7 @@ export class CarsService {
 
   deleteCar(id: number) {
     return this.httpClient
-      .delete(this.url + id)
+      .delete(this.url + 'cars/' + id)
       .pipe(
         catchError(this.handleError)
       );

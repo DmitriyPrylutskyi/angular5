@@ -13,8 +13,8 @@ export interface Car {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Angular';
-  cars: Car[] = [];
+  title = 'Angular !';
+  cars;
   carName = '';
   colors = [
     'red',
@@ -31,16 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   loadCars() {
-    this.carsService
-      .getCars()
-      .subscribe(
-        (cars: Car[] ) => {
-        this.cars = cars;
-        },
-        (error) => {
-          alert(error);
-        }
-      );
+    this.cars = this.carsService.getCars();
   }
 
   addCar() {
