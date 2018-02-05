@@ -39,15 +39,21 @@ export class AppComponent implements OnInit {
         },
         (error) => {
           alert(error);
-      });
+        }
+      );
   }
 
   addCar() {
     this.carsService
       .addCar(this.carName, this.getRandColor())
-      .subscribe((car: Car) => {
+      .subscribe(
+        (car: Car) => {
         this.cars.push(car);
-      });
+        },
+        (error) => {
+          alert(error);
+        }
+      );
     this.carName = '';
   }
 
@@ -58,15 +64,25 @@ export class AppComponent implements OnInit {
 
   changeColorCar(car: Car) {
     this.carsService.setColorCar(car, this.getRandColor())
-      .subscribe((data) => {
+      .subscribe(
+        (data) => {
         console.log(data);
-      });
+        },
+        (error) => {
+          alert(error);
+        }
+      );
   }
 
   deleteCar(id: number) {
     this.carsService.deleteCar(id)
-      .subscribe(() => {
+      .subscribe(
+        () => {
         this.cars = this.cars.filter(car => car.id !== id);
-      });
+        },
+        (error) => {
+          alert(error);
+        }
+      );
   }
 }

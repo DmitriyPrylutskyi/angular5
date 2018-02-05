@@ -19,8 +19,7 @@ export class CarsService {
     return this.httpClient
       .get(this.url, {headers: headers})
       .pipe(
-        catchError(() => new ErrorObservable('Something bad happened. Please try again later.')
-        )
+        catchError(this.handleError)
       );
   }
 
@@ -30,15 +29,32 @@ export class CarsService {
       color: carColor
     };
 
-    return this.httpClient.post(this.url, data);
+    return this.httpClient
+      .post(this.url, data)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   setColorCar(car: Car, color: string) {
     car.color = color;
-    return this.httpClient.put(this.url + car.id, car);
+    return this.httpClient
+      .put(this.url + car.id, car)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   deleteCar(id: number) {
-    return this.httpClient.delete(this.url + id);
+    return this.httpClient
+      .delete(this.url + id)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  handleError() {
+    return new ErrorObservable(
+      'Something bad happened. Please try again later.');
   }
 }
