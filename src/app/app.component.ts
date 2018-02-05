@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('form') form: NgForm;
+
   title = 'Angular';
   answers = [
     {
@@ -20,12 +22,28 @@ export class AppComponent implements OnInit {
   ];
 
   defaultAnswer = 'no';
+  formData = {};
+  isSubmitted = false;
 
   ngOnInit() {
 
   }
 
-  submitForm(form: NgForm) {
-    console.log('Submited', form);
+  addRandEmail() {
+    const randEmail = 'test@gmail.com';
+
+    this.form.form.patchValue({
+      userData: {email: randEmail}
+    });
+  }
+
+
+  submitForm() {
+    this.isSubmitted = true;
+    this.formData = this.form.value;
+    this.form.reset();
+    this.form.form.patchValue({
+      answer: 'no'
+    });
   }
 }
