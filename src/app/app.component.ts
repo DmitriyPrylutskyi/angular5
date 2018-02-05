@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl(''),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
       country: new FormControl(''),
       answer: new FormControl('no')
     });
