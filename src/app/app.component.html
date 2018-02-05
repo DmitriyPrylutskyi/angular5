@@ -12,8 +12,8 @@
       <button class="btn btn-primary" (click)="loadCars()">Load cars</button>
       <hr>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let car of cars">
-          <span class="badge">{{car.id}}</span> {{car.name}} {{car.color}}
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let car of cars">
+          Model: {{car.name}}, color: {{car.color}} <span class="badge badge-info badge-pill">{{car.id}}</span>
         </li>
       </ul>
  		</div>
