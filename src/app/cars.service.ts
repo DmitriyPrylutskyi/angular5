@@ -3,10 +3,20 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CarsService {
+  url = 'http://localhost:3000/cars';
 
   constructor(private httpClient: HttpClient) { }
 
   getCars() {
-    return this.httpClient.get('http://localhost:3000/cars');
+    return this.httpClient.get(this.url);
+  }
+
+  addCar(carName: string, carColor: string) {
+    const data = {
+      name: carName,
+      color: carColor
+    };
+
+    return this.httpClient.post(this.url, data);
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CarsService} from './cars.service';
 
-interface Cars {
+interface Car {
   name: string;
   color: string;
   id: number;
@@ -14,7 +14,9 @@ interface Cars {
 })
 export class AppComponent implements OnInit {
   title = 'Angular';
-  cars: Cars[] = [];
+  cars: Car[] = [];
+  carName = '';
+  carColor = '';
 
   constructor(private carsService: CarsService) {}
 
@@ -25,8 +27,18 @@ export class AppComponent implements OnInit {
   loadCars() {
     this.carsService
       .getCars()
-      .subscribe((cars: Cars[] ) => {
+      .subscribe((cars: Car[] ) => {
         this.cars = cars;
       });
+  }
+
+  addCar() {
+    this.carsService
+      .addCar(this.carName, this.carColor)
+      .subscribe((car: Car) => {
+        this.cars.push(car);
+      });
+    this.carName = '';
+    this.carColor = '';
   }
 }

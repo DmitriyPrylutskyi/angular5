@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +12,7 @@ import { CarsService } from './cars.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [CarsService],
