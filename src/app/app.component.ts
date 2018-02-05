@@ -20,16 +20,27 @@ export class AppComponent implements OnInit {
   ];
 
   form: FormGroup;
+  minChars = 6;
 
   ngOnInit() {
     this.form = new FormGroup({
       userdata: new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', Validators.required)
+        password: new FormControl('', [Validators.required, this.checkLength.bind(this)])
       }),
       country: new FormControl(''),
       answer: new FormControl('no')
     });
+  }
+
+  checkLength(control: FormControl) {
+    if (control.value.length < this.minChars ) {
+      return {
+        'lengthError': true
+      };
+    }
+
+    return null;
   }
 
   onSubmit() {

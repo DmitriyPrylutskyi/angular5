@@ -29,7 +29,13 @@
               formControlName="password"
               [ngClass]="{'is-invalid': form.get('userdata.password').invalid && form.get('userdata.password').touched}"
             >
-            <p *ngIf="form.get('userdata.password').invalid && form.get('userdata.password').touched">Password is required</p>
+            <p
+              *ngIf="form.get('userdata.password').invalid && form.get('userdata.password').touched">
+              <span *ngIf="form.get('userdata.password').errors['required'];else next">Password is required</span>
+              <ng-template #next>
+                <span *ngIf="form.get('userdata.password').errors['lengthError']">Password is short (min {{minChars}} characters)</span>
+              </ng-template>
+            </p>
           </div>
           <p *ngIf="form.get('userdata').invalid && form.get('userdata').touched">User data is invalid</p>
         </div>
