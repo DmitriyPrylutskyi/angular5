@@ -22,8 +22,12 @@ export class CarsService {
     return this.httpClient.post(this.url, data);
   }
 
-  changeColor(car: Car, color: string) {
+  setColorCar(car: Car, color: string) {
     car.color = color;
-    return this.httpClient.put(this.url + '/' + car.id, {car});
+    return this.httpClient.put(this.url + '/' + car.id, car);
+  }
+
+  deleteCar(id: number) {
+    return this.httpClient.delete(this.url + '/' + id);
   }
 }

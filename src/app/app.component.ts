@@ -52,10 +52,17 @@ export class AppComponent implements OnInit {
     return this.colors[posColor];
   }
 
-  changeColor(car: Car) {
-    this.carsService.changeColor(car, this.getRandColor())
+  changeColorCar(car: Car) {
+    this.carsService.setColorCar(car, this.getRandColor())
       .subscribe((data) => {
         console.log(data);
+      });
+  }
+
+  deleteCar(id: number) {
+    this.carsService.deleteCar(id)
+      .subscribe((data) => {
+        this.cars = this.cars.filter(car => car.id !== id);
       });
   }
 }
