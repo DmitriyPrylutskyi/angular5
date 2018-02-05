@@ -20,11 +20,15 @@
       <hr>
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let car of cars">
-          {{car.name}}
-          <span
-            class="badge badge-info badge-pill"
-            [ngStyle]="{background: car.color}"
-          >{{car.id}}</span>
+          <div class="list-inline-item">
+            <span
+              class="badge badge-info badge-pill"
+              [ngStyle]="{background: car.color}"
+            >
+              {{car.id}}
+            </span>
+            {{car.name}}
+          </div>
           <div class="list-inline-item">
             <button class="btn btn-xs btn-info" type="button" (click)="changeColorCar(car)">Change color</button>
             <button class="btn btn-xs btn-danger" type="button" (click)="deleteCar(car.id)">Delete</button>

@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
 
   deleteCar(id: number) {
     this.carsService.deleteCar(id)
-      .subscribe((data) => {
+      .subscribe(() => {
         this.cars = this.cars.filter(car => car.id !== id);
       });
   }
