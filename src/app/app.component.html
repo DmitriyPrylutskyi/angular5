@@ -10,8 +10,8 @@
   <div class="row">
     <div class="col-10 offset-1">
       <nav class="nav nav-pills nav-justified mb-4">
-        <a class="nav-link"  routerLink="" routerLinkActive="active">HOME</a>
-        <a class="nav-link"  routerLink="cars" routerLinkActive="active">CARS</a>
+        <a class="nav-link"  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+        <a class="nav-link"  [routerLink]="'/cars' " routerLinkActive="active">CARS</a>
       </nav>
 
       <router-outlet></router-outlet>
