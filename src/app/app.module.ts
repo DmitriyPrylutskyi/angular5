@@ -2,17 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './routing.module';
 import { CarsService } from './cars.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CarsPageComponent } from './cars-page/cars-page.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'cars', component: CarsPageComponent }
-];
 
 @NgModule({
   declarations: [
@@ -24,7 +19,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
