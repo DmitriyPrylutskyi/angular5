@@ -18,13 +18,13 @@
           <button class="btn btn-danger" (click)="changeAuthStatus('logout')">Log Out</button>
         </div>
       </nav>
-      <div *ngIf="showLoginAlert" class="alert alert-success">
+      <div [ngClass]="{'show': showLoginAlert}" class="alert alert-success fade">
         You Log In!
       </div>
-      <div *ngIf="showLogoutAlert" class="alert alert-success">
+      <div [ngClass]="{'show': showLogoutAlert}" class="alert alert-success fade">
         You Log Out!
       </div>
-      <div *ngIf="showMustLoginAlert" class="alert alert-danger">
+      <div [ngClass]="{'show': showMustLoginAlert}" class="alert alert-danger fade">
         You Must Log In!
       </div>
 
