@@ -4,12 +4,15 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './routing.module';
+import { AppRoutingModule } from './routing/app.routing.module';
 import { CarsService } from './cars.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CarsPageComponent } from './cars-page/cars-page.component';
 import { CarPageComponent } from './car-page/car-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NewsPageComponent } from './news-page/news-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomePageComponent,
     CarsPageComponent,
     CarPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NewsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CarsService],
+  providers: [CarsService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 
